@@ -24,6 +24,8 @@ export default {
 
 <style lang="scss">
 p {
+  text-align: center;
+
     &.invalid {
         color: $red;
     }
