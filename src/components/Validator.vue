@@ -5,17 +5,17 @@
           <criteria
               :pass-message="`Password is ${password.length} characters long`"
               fail-message="Password should be at least eight characters long"
-              v-bind:valid="password.length >= 8"
+              v-bind:valid="lengthValidator()"
           />
           <criteria
               :pass-message="`${specialCharCount} special characters`"
               fail-message="Should have at least two special characters"
-              v-bind:valid="specialCharCount >= 2"
+              v-bind:valid="specialCharValidator()"
           />
           <criteria
               :pass-message="`${uppercaseCharCount} uppercase characters`"
               fail-message="Should have at least two uppercase characters"
-              v-bind:valid="uppercaseCharCount >= 2"
+              v-bind:valid="uppercaseValidator()"
           />
         </div>
     </div>
@@ -45,7 +45,13 @@ export default {
   },
   methods: {
     lengthValidator() {
-      return this.password.length > 10;
+      return this.password.length >= 8;
+    },
+    specialCharValidator() {
+      return this.specialCharCount >= 2;
+    },
+    uppercaseValidator() {
+      return this.uppercaseCharCount >= 2;
     },
   },
 };
