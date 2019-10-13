@@ -1,6 +1,6 @@
 <template>
     <div class="validator">
-        <input type="text" v-model="password"/>
+        <input type="text" spellcheck="false" v-model="password"/>
         <div class="criteria-container">
           <criteria
               :pass-message="`Password is ${password.length} characters long`"
@@ -67,6 +67,7 @@ export default {
     margin-bottom: 1rem;
     font-size: 1.5em;
     padding: .25em;
+    text-align: center;
   }
 
   .criteria-container {
