@@ -1,5 +1,6 @@
 <template>
   <div class="password-validator">
+    <h1>Password Validator</h1>
     <div class="validator-container">
       <validator />
     </div>
@@ -22,7 +23,16 @@ export default {
 .password-validator {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  margin: 1em 0;
+  grid-row-gap: 1.5em;
+}
+
+h1 {
+  grid-column: 1 / 13;
+  text-align: center;
+}
+
+.validator-container {
+  grid-row: 2;
 }
 
 @media only screen and (max-width: 400px) {

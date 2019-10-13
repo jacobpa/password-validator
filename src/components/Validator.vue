@@ -1,23 +1,23 @@
 <template>
     <div class="validator">
-        <input type="text" spellcheck="false" v-model="password"/>
-        <div class="criteria-container">
-          <criteria
-              :pass-message="`Password is ${password.length} characters long`"
-              fail-message="Password should be at least eight characters long"
-              v-bind:valid="lengthValidator()"
-          />
-          <criteria
-              :pass-message="`${specialCharCount} special characters`"
-              fail-message="Should have at least two special characters"
-              v-bind:valid="specialCharValidator()"
-          />
-          <criteria
-              :pass-message="`${uppercaseCharCount} uppercase characters`"
-              fail-message="Should have at least two uppercase characters"
-              v-bind:valid="uppercaseValidator()"
-          />
-        </div>
+      <input type="text" spellcheck="false" v-model="password"/>
+      <div class="criteria-container">
+        <criteria
+          :pass-message="`Password is ${password.length} characters long`"
+          fail-message="Password should be at least eight characters long"
+          v-bind:valid="lengthValidator()"
+        />
+        <criteria
+          :pass-message="`${specialCharCount} special characters`"
+          fail-message="Should have at least two special characters"
+          v-bind:valid="specialCharValidator()"
+        />
+        <criteria
+          :pass-message="`${uppercaseCharCount} uppercase characters`"
+          fail-message="Should have at least two uppercase characters"
+          v-bind:valid="uppercaseValidator()"
+        />
+      </div>
     </div>
 </template>
 
