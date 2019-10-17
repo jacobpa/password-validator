@@ -5,13 +5,13 @@ const state = {
 };
 
 const mutations = {
-  setMinLength(state, { length }) {
+  setMinLength(state, length) {
     state.minLength = length;
   },
-  setMinSpecialChar(state, { count }) {
+  setMinSpecialChar(state, count) {
     state.minSpecialChar = count;
   },
-  setMinUpperChar(state, { count }) {
+  setMinUpperChar(state, count) {
     state.minUpperChar = count;
   },
 };
