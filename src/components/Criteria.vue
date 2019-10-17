@@ -8,16 +8,22 @@
 
 <script>
 export default {
-  props: {
-    valid: Boolean,
-    passMessage: String,
-    failMessage: String,
+  computed: {
+    valid() {
+      return this.validator(this.password).status;
+    },
   },
   data() {
     return {
       passed: 'valid',
       failed: 'invalid',
     };
+  },
+  props: {
+    validator: Function,
+    password: String,
+    passMessage: String,
+    failMessage: String,
   },
 };
 </script>

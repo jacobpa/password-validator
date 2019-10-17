@@ -5,17 +5,20 @@
         <criteria
           :pass-message="`Password is ${password.length} characters long`"
           :fail-message="`Password should be at least ${config.minLength} characters long`"
-          v-bind:valid="lengthValidator()"
+          :validator="validators.length"
+          :password="password"
         />
         <criteria
           :pass-message="`${specialCharCount} special characters`"
           :fail-message="`Should have at least ${config.minSpecialChar} special characters`"
-          v-bind:valid="specialCharValidator()"
+          :validator="validators.specialChar"
+          :password="password"
         />
         <criteria
           :pass-message="`${uppercaseCharCount} uppercase characters`"
           :fail-message="`Should have at least ${config.minUpperChar} uppercase characters`"
-          v-bind:valid="uppercaseValidator()"
+          :validator="validators.upperCaseChar"
+          :password="password"
         />
       </div>
     </div>
@@ -23,11 +26,13 @@
 
 <script>
 import Criteria from '@/components/Criteria.vue';
+import validators from '@/util/validators';
 
 export default {
   data() {
     return {
       password: '',
+      validators,
     };
   },
   components: {
@@ -35,26 +40,13 @@ export default {
   },
   computed: {
     specialCharCount() {
-      const matches = this.password.match(/[^a-zA-Z0-9]/g); // Match all non-alphanumeric characters
-      return matches ? matches.length : 0;
+      return validators.specialChar(this.password).value;
     },
     uppercaseCharCount() {
-      const matches = this.password.match(/[A-Z]/g);
-      return matches ? matches.length : 0;
+      return validators.upperCaseChar(this.password).value;
     },
     config() {
       return this.$store.state.configuration;
-    },
-  },
-  methods: {
-    lengthValidator() {
-      return this.password.length >= this.config.minLength;
-    },
-    specialCharValidator() {
-      return this.specialCharCount >= this.config.minSpecialChar;
-    },
-    uppercaseValidator() {
-      return this.uppercaseCharCount >= this.config.minUpperChar;
     },
   },
 };
