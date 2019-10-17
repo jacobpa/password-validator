@@ -1,5 +1,5 @@
 const state = {
-  minLength: 0,
+  minLength: 8,
   minSpecialChar: 2,
   minUpperChar: 2,
 };

@@ -4,17 +4,17 @@
       <div class="criteria-container">
         <criteria
           :pass-message="`Password is ${password.length} characters long`"
-          fail-message="Password should be at least eight characters long"
+          :fail-message="`Password should be at least ${config.minLength} characters long`"
           v-bind:valid="lengthValidator()"
         />
         <criteria
           :pass-message="`${specialCharCount} special characters`"
-          fail-message="Should have at least two special characters"
+          :fail-message="`Should have at least ${config.minSpecialChar} special characters`"
           v-bind:valid="specialCharValidator()"
         />
         <criteria
           :pass-message="`${uppercaseCharCount} uppercase characters`"
-          fail-message="Should have at least two uppercase characters"
+          :fail-message="`Should have at least ${config.minUpperChar} uppercase characters`"
           v-bind:valid="uppercaseValidator()"
         />
       </div>
@@ -42,16 +42,19 @@ export default {
       const matches = this.password.match(/[A-Z]/g);
       return matches ? matches.length : 0;
     },
+    config() {
+      return this.$store.state.configuration;
+    },
   },
   methods: {
     lengthValidator() {
-      return this.password.length >= 8;
+      return this.password.length >= this.config.minLength;
     },
     specialCharValidator() {
-      return this.specialCharCount >= 2;
+      return this.specialCharCount >= this.config.minSpecialChar;
     },
     uppercaseValidator() {
-      return this.uppercaseCharCount >= 2;
+      return this.uppercaseCharCount >= this.config.minUpperChar;
     },
   },
 };
