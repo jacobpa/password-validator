@@ -3,15 +3,26 @@
     <h1>Settings</h1>
     <div class="input-group">
       <label for="length">Minimum length of password</label>
-      <input id="length" type="number" min="0" :value="config.minLength" @input="setMinLength"/>
+      <input
+        id="length" type="number" min="0"
+        :value="config.minLength"
+        @input="setMinLength"
+      />
     </div>
     <div class="input-group">
       <label for="specialChar">Minimum number of special characters</label>
-      <input id="specialChar" type="number" min="0" :value="config.minSpecialChar" @input="setMinSpecialChar"/>
+      <input
+        id="specialChar" type="number" min="0"
+        :value="config.minSpecialChar"
+        @input="setMinSpecialChar"
+      />
     </div>
     <div class="input-group">
       <label for="upperChar">Minimum number of uppercase characters</label>
-      <input id="upperChar" type="number" min="0" :value="config.minUpperChar" @input="setMinUpperChar"/>
+      <input
+        id="upperChar" type="number" min="0"
+        :value="config.minUpperChar"
+        @input="setMinUpperChar"/>
       </div>
   </div>
 </template>
