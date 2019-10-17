@@ -4,6 +4,7 @@
       <router-link :to="{name: 'password-validator'}"><h2>Lado Pass</h2></router-link>
       <div class="links">
         <router-link :to="{name: 'password-validator'}">Validator</router-link>
+        <router-link :to="{name: 'settings'}">Settings</router-link>
       </div>
     </div>
   </nav>
@@ -32,6 +33,14 @@ nav {
       flex-direction: row;
       align-items: center;
       min-height: 1.5em;
+
+      a {
+        padding-right: 1em;
+
+        &:last-of-type {
+          padding-right: 0;
+        }
+      }
     }
 
     a {
