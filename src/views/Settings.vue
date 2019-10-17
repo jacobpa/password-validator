@@ -3,18 +3,28 @@
     <h1>Settings</h1>
     <div class="input-group">
       <label for="length">Minimum length of password</label>
-      <input id="length" type="number" min="0" />
+      <input id="length" type="number" min="0" :value="config.minLength"/>
     </div>
     <div class="input-group">
       <label for="specialChar">Minimum number of special characters</label>
-      <input id="specialChar" type="number" min="0" />
+      <input id="specialChar" type="number" min="0" :value="config.minSpecialChar"/>
     </div>
     <div class="input-group">
       <label for="upperChar">Minimum number of uppercase characters</label>
-      <input id="upperChar" type="number" min="0" />
+      <input id="upperChar" type="number" min="0" :value="config.minUpperChar"/>
       </div>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    config() {
+      return this.$store.state.configuration;
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .settings {
