@@ -25,13 +25,13 @@ export default {
   },
   methods: {
     setMinLength(e) {
-      this.$store.commit('setMinLength', event.target.value);
+      this.$store.commit('setMinLength', e.target.value);
     },
     setMinSpecialChar(e) {
-      this.$store.commit('setMinSpecialChar', event.target.value);
+      this.$store.commit('setMinSpecialChar', e.target.value);
     },
     setMinUpperChar(e) {
-      this.$store.commit('setMinUpperChar', event.target.value);
+      this.$store.commit('setMinUpperChar', e.target.value);
     },
   },
 };
