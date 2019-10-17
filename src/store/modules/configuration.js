@@ -6,12 +6,15 @@ const state = {
 
 const mutations = {
   setMinLength(state, length) {
+    if (!length || length < 0) return;
     state.minLength = length;
   },
   setMinSpecialChar(state, count) {
+    if (!count || count < 0) return;
     state.minSpecialChar = count;
   },
   setMinUpperChar(state, count) {
+    if (!count || count < 0) return;
     state.minUpperChar = count;
   },
 };
