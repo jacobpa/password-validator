@@ -9,13 +9,13 @@
           :password="password"
         />
         <criteria
-          :pass-message="`${specialCharCount} special characters`"
+          :pass-message="`Password has ${specialCharCount} special characters`"
           :fail-message="`Should have at least ${config.minSpecialChar} special characters`"
           :validator="validators.specialChar"
           :password="password"
         />
         <criteria
-          :pass-message="`${uppercaseCharCount} uppercase characters`"
+          :pass-message="`Password has ${uppercaseCharCount} uppercase characters`"
           :fail-message="`Should have at least ${config.minUpperChar} uppercase characters`"
           :validator="validators.upperCaseChar"
           :password="password"
@@ -40,10 +40,10 @@ export default {
   },
   computed: {
     specialCharCount() {
-      return validators.specialChar(this.password).value;
+      return validators.specialChar(this.password).count;
     },
     uppercaseCharCount() {
-      return validators.upperCaseChar(this.password).value;
+      return validators.upperCaseChar(this.password).count;
     },
     config() {
       return this.$store.state.configuration;
