@@ -26,8 +26,18 @@ const upperCaseChar = (password) => {
   };
 };
 
+const lowerCaseChar = (password) => {
+  const matches = password.match(/[a-z]/g);
+  const count = matches ? matches.length : 0;
+  return {
+    status: count >= configuration.minLowerChar,
+    count,
+  };
+};
+
 export default {
   length,
   specialChar,
   upperCaseChar,
+  lowerCaseChar,
 };

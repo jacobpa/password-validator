@@ -20,6 +20,12 @@
           :validator="validators.upperCaseChar"
           :password="password"
         />
+        <criteria
+          :pass-message="`Password has ${lowercaseCharCount} lowercase characters`"
+          :fail-message="`Should have at least ${config.minLowerChar} lowercase characters`"
+          :validator="validators.lowerCaseChar"
+          :password="password"
+        />
       </div>
     </div>
 </template>
@@ -44,6 +50,9 @@ export default {
     },
     uppercaseCharCount() {
       return validators.upperCaseChar(this.password).count;
+    },
+    lowercaseCharCount() {
+      return validators.lowerCaseChar(this.password).count;
     },
     config() {
       return this.$store.state.configuration;

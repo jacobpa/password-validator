@@ -22,8 +22,17 @@
       <input
         id="upperChar" type="number" min="0"
         :value="config.minUpperChar"
-        @input="setMinUpperChar"/>
-      </div>
+        @input="setMinUpperChar"
+      />
+    </div>
+    <div class="input-group">
+      <label for="lowerChar">Minimum number of lowercase characters</label>
+      <input
+        id="lowerChar" type="number" min="0"
+        :value="config.minLowerChar"
+        @input="setMinLowerChar"
+      />
+    </div>
   </div>
 </template>
 
@@ -43,6 +52,9 @@ export default {
     },
     setMinUpperChar(e) {
       this.$store.commit('setMinUpperChar', e.target.value);
+    },
+    setMinLowerChar(e) {
+      this.$store.commit('setMinLowerChar', e.target.value);
     },
   },
 };

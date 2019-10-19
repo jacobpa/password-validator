@@ -2,6 +2,7 @@ const state = {
   minLength: 8,
   minSpecialChar: 2,
   minUpperChar: 2,
+  minLowerChar: 2,
 };
 
 const mutations = {
@@ -16,6 +17,10 @@ const mutations = {
   setMinUpperChar(state, count) {
     if (!count || count < 0) return;
     state.minUpperChar = count;
+  },
+  setMinLowerChar(state, count) {
+    if (!count || count < 0) return;
+    state.minLowerChar = count;
   },
 };
 
