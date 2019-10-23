@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="nav-container">
-      <router-link :to="{name: 'password-validator'}"><h2>Lado Pass</h2></router-link>
+      <router-link :to="{name: 'password-validator'}"><h2>Ladno Pass</h2></router-link>
       <div class="links">
         <router-link :to="{name: 'password-validator'}">Validator</router-link>
         <router-link :to="{name: 'settings'}">Settings</router-link>
