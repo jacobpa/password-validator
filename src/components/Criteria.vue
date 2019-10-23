@@ -12,6 +12,9 @@ export default {
     valid() {
       return this.validator(this.password).status;
     },
+    password() {
+      return this.$store.state.configuration.password;
+    },
   },
   data() {
     return {
@@ -21,7 +24,6 @@ export default {
   },
   props: {
     validator: Function,
-    password: String,
     passMessage: String,
     failMessage: String,
   },

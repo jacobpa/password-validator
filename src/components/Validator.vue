@@ -6,25 +6,21 @@
           :pass-message="`Password is ${password.length} characters long`"
           :fail-message="`Password should be at least ${config.minLength} characters long`"
           :validator="validators.length"
-          :password="password"
         />
         <criteria
           :pass-message="`Password has ${specialCharCount} special characters`"
           :fail-message="`Should have at least ${config.minSpecialChar} special characters`"
           :validator="validators.specialChar"
-          :password="password"
         />
         <criteria
           :pass-message="`Password has ${uppercaseCharCount} uppercase characters`"
           :fail-message="`Should have at least ${config.minUpperChar} uppercase characters`"
           :validator="validators.upperCaseChar"
-          :password="password"
         />
         <criteria
           :pass-message="`Password has ${lowercaseCharCount} lowercase characters`"
           :fail-message="`Should have at least ${config.minLowerChar} lowercase characters`"
           :validator="validators.lowerCaseChar"
-          :password="password"
         />
       </div>
     </div>
