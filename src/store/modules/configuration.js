@@ -1,4 +1,5 @@
 const state = {
+  password: '',
   minLength: 8,
   minSpecialChar: 2,
   minUpperChar: 2,
@@ -21,6 +22,9 @@ const mutations = {
   setMinLowerChar(state, count) {
     if (!count || count < 0) return;
     state.minLowerChar = count;
+  },
+  setPassword(state, pass) {
+    state.password = pass;
   },
 };
 

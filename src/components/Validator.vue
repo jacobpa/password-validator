@@ -1,6 +1,6 @@
 <template>
     <div class="validator">
-      <input type="text" spellcheck="false" v-model="password"/>
+      <input type="text" spellcheck="false" :value="password" @input="updatePassword"/>
       <div class="criteria-container">
         <criteria
           :pass-message="`Password is ${password.length} characters long`"
@@ -37,7 +37,6 @@ import validators from '@/util/validators';
 export default {
   data() {
     return {
-      password: '',
       validators,
     };
   },
@@ -54,8 +53,16 @@ export default {
     lowercaseCharCount() {
       return validators.lowerCaseChar(this.password).count;
     },
+    password() {
+      return this.config.password;
+    },
     config() {
       return this.$store.state.configuration;
+    },
+  },
+  methods: {
+    updatePassword(e) {
+      this.$store.commit('setPassword', e.target.value);
     },
   },
 };
