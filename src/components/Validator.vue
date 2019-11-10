@@ -1,6 +1,8 @@
 <template>
     <div class="validator">
-      <input type="text" spellcheck="false" :value="password" @input="updatePassword"/>
+      <input type="text" spellcheck="false" :value="password" @input="updatePassword"
+        :maxlength="1000"
+      />
       <div class="criteria-container">
         <criteria
           :pass-message="`Password is ${password.length} characters long`"
