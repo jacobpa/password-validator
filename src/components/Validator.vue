@@ -24,6 +24,11 @@
           :fail-message="`Should have at least ${config.minLowerChar} lowercase characters`"
           :validator="validators.lowerCaseChar"
         />
+        <criteria
+          :pass-message="`No Illegal character detected.`"
+          :fail-message="`Illegal character detected.`"
+          :validator="validators.lowerCaseChar"
+        />
       </div>
     </div>
 </template>

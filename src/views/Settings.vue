@@ -4,45 +4,47 @@
     <div class="input-group">
       <label for="length">Minimum length of password</label>
       <input
-        oninput="javascript: if(this.value.length > this.maxLength)
-          this.value =9999;"
+      oninput="javascript: if(this.value > 1000||this.value.length>10)
+        this.value =1000;"
         id="length" type="number" min="0"
         :value="config.minLength"
         @input="setMinLength"
-        :maxlength="4"
       />
     </div>
     <div class="input-group">
       <label for="specialChar">Minimum number of special characters</label>
       <input
-        oninput="javascript: if(this.value.length > this.maxLength)
-          this.value =9999;"
+      oninput="javascript: if(this.value > 1000||this.value.length>10)
+        this.value =1000;"
         id="specialChar" type="number" min="0"
         :value="config.minSpecialChar"
         @input="setMinSpecialChar"
-        :maxlength="4"
       />
     </div>
     <div class="input-group">
       <label for="upperChar">Minimum number of uppercase characters</label>
       <input
-        oninput="javascript: if(this.value.length > this.maxLength)
-          this.value =9999;"
+      oninput="javascript: if(this.value > 1000||this.value.length>10)
+        this.value =1000;"
         id="upperChar" type="number" min="0"
         :value="config.minUpperChar"
         @input="setMinUpperChar"
-        :maxlength="4"
       />
     </div>
     <div class="input-group">
       <label for="lowerChar">Minimum number of lowercase characters</label>
       <input
-        oninput="javascript: if(this.value.length > this.maxLength)
-          this.value =9999;"
+      oninput="javascript: if(this.value > 1000||this.value.length>10)
+        this.value =1000;"
         id="lowerChar" type="number" min="0"
         :value="config.minLowerChar"
         @input="setMinLowerChar"
-        :maxlength="4"
+      />
+    </div>
+    <div class="input-group">
+      <label for = "spaceEnabled">Space Enabled</label>
+      <input type="checkbox" id="checkbox" v-model="checked"
+        :value="config.spaceEnabled"
       />
     </div>
   </div>
