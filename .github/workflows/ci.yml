@@ -1,0 +1,16 @@
+name: Node CI
+
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1.1.0
+        with: 
+          node-version: '10.x'
+      - name: NPM Install and Lint
+        run: |
+          npm ci
+          npm run lint
