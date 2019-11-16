@@ -33,7 +33,17 @@
         @input="setMinLowerChar"
       />
     </div>
+  <div class = "configurations">
+    <h1>Configurations</h1>
+      <ul>
+        <li><button v-on:click="config.minLength = 6, config.minSpecialChar = 0, config.minUpperChar = 0,config.minLowerChar = 0 ">Facebook</button></li>
+        <li><button v-on:click="config.minLength = 8, config.minSpecialChar = 3, config.minUpperChar = 3,config.minLowerChar = 3 ">OSU</button></li>
+      </ul>
+      
   </div>
+
+  </div>
+  
 </template>
 
 <script>
@@ -77,6 +87,13 @@ export default {
     input {
       font-size: inherit;
     }
+  }
+
+  .configurations{
+    li {list-style-type: none;
+      float: left;
+      padding-right: 20px;
+      }
   }
 }
 </style>
