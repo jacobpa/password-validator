@@ -18,3 +18,8 @@ Suggestions and Contextual Requirements:
 * Do not match previously used passwords
 * Avoid dictionary words
 * May not contain full, given, or last names
+
+
+## Facebook
+
+* A combination of at least six numbers, letters and puncuration marks
