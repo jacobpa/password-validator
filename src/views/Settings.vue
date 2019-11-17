@@ -36,8 +36,14 @@
   <div class = "configurations">
     <h1>Configurations</h1>
       <ul>
-        <li><button v-on:click="config.minLength = 6, config.minSpecialChar = 0, config.minUpperChar = 0,config.minLowerChar = 0 ">Facebook</button></li>
-        <li><button v-on:click="config.minLength = 8, config.minSpecialChar = 3, config.minUpperChar = 3,config.minLowerChar = 3 ">OSU</button></li>
+        <li><button class = "button1" v-on:click="config.minLength = 6, config.minSpecialChar = 0, config.minUpperChar = 0,config.minLowerChar = 0 ">Facebook</button></li>
+        <li><button class = "button1" v-on:click="config.minLength = 8, config.minSpecialChar = 3, config.minUpperChar = 3,config.minLowerChar = 3 ">OSU</button></li>
+        <li><button class = "button1" v-on:click="config.minLength = 8, config.minSpecialChar = 0, config.minUpperChar = 0,config.minLowerChar = 0 ">Piazza</button></li>
+        <li><button class = "button1" v-on:click="config.minLength = 8, config.minSpecialChar = 1, config.minUpperChar = 1,config.minLowerChar = 1 ">Github</button></li>
+        <li><button class = "button1" v-on:click="config.minLength = 8, config.minSpecialChar = 1, config.minUpperChar = 1,config.minLowerChar = 1 ">YouTube</button></li>
+        <li><button class = "button1" v-on:click="config.minLength = 8, config.minSpecialChar = 1, config.minUpperChar = 0,config.minLowerChar = 0 ">Stack Overflow</button></li>
+        <li><button class = "button1" v-on:click="config.minLength = 6, config.minSpecialChar = 0, config.minUpperChar = 0,config.minLowerChar = 0 ">Reddit</button></li>
+        <li><button class = "button1" v-on:click="config.minLength = 8, config.minSpecialChar = 2, config.minUpperChar = 2,config.minLowerChar = 2 ">Default Settings</button></li>
       </ul>
       
   </div>
@@ -93,6 +99,32 @@ export default {
     li {list-style-type: none;
       float: left;
       padding-right: 20px;
+      }
+
+      button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 16px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          -webkit-transition-duration: 0.4s; /* Safari */
+          transition-duration: 0.4s;
+          cursor: pointer;
+      }
+      
+      .button1 {
+        background-color: white; 
+        color: black; 
+        border: 2px solid #001F3F;
+      }
+
+      .button1:hover {
+        background-color: #001F3F;
+        color: white;
       }
   }
 }
