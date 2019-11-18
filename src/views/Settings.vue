@@ -92,7 +92,16 @@
 </template>
 
 <script>
-const parseEventInput = e => (e.target.type === 'number' ? parseInt(e.target.value, 10) : e.target.value);
+const parseEventInput = (e) => {
+  if (e.target) {
+    return (e.target.type === 'number' ? parseInt(e.target.value, 10) : e.target.value);
+  }
+  if (parseInt(e, 10)) {
+    return parseInt(e, 10);
+  }
+
+  return 0;
+};
 
 export default {
   computed: {
