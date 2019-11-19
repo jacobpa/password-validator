@@ -33,6 +33,14 @@
         @input="setMinLowerChar"
       />
     </div>
+    <div class="input-group">
+      <label for="numerics">Minimum number of numerical characters</label>
+      <input
+        id="numerics" type="number" min="0"
+        :value="config.minNumeric"
+        @input="setMinNumeric"
+      />
+    </div>
   <div class = "configurations">
     <h1>Configurations</h1>
       <ul>
@@ -40,42 +48,50 @@
        setMinLength(6);
        setMinSpecialChar(0);
        setMinUpperChar(0);
-       setMinLowerChar(0);">Facebook</button></li>
+       setMinLowerChar(0);
+       setMinNumeric(0)">Facebook</button></li>
        <li><button class = "button1" @click="
        setMinLength(8);
        setMinSpecialChar(3);
        setMinUpperChar(3);
-       setMinLowerChar(3); ">OSU</button></li>
+       setMinLowerChar(3);
+       setMinNumeric(0)">OSU</button></li>
        <li><button class = "button1" @click="
        setMinLength(8);
        setMinSpecialChar(0);
        setMinUpperChar(0);
-       setMinLowerChar(0); ">Piazza</button></li>
+       setMinLowerChar(0);
+       setMinNumeric(0)">Piazza</button></li>
        <li><button class = "button1" @click="
        setMinLength(8);
        setMinSpecialChar(1);
        setMinUpperChar(1);
-       setMinLowerChar(1); ">Github</button></li>
+       setMinLowerChar(1);
+       setMinNumeric(1)">Github</button></li>
        <li><button class = "button1" @click="
        setMinLength(8);
        setMinSpecialChar(1);
        setMinUpperChar(1);
-       setMinLowerChar(1); ">YouTube</button></li>
+       setMinLowerChar(1);
+       setMinNumeric(0)">YouTube</button></li>
        <li><button class = "button1" @click="
        setMinLength(8);
        setMinSpecialChar(1);
        setMinUpperChar(0);
-       setMinLowerChar(0); ">Stack Overflow</button></li>
+       setMinLowerChar(0);
+       setMinNumeric(1)">Stack Overflow</button></li>
        <li><button class = "button1" @click="
        setMinLength(6);
        setMinSpecialChar(0);
        setMinUpperChar(0);
-       setMinLowerChar(0); ">Reddit</button></li>
+       setMinLowerChar(0);
+       setMinNumeric(0)">Reddit</button></li>
        <li><button class = "button1" @click="
        setMinLength(8);
        setMinSpecialChar(2);
        setMinUpperChar(2);
-       setMinLowerChar(2);">Default Settings</button></li>
+       setMinLowerChar(2);
+       setMinNumeric(2)">Default Settings</button></li>
      </ul>
 
   </div>
@@ -114,6 +130,9 @@ export default {
     },
     setMinLowerChar(e) {
       this.$store.commit('setMinLowerChar', parseEventInput(e));
+    },
+    setMinNumeric(e) {
+      this.$store.commit('setMinNumeric', parseEventInput(e));
     },
   },
 };
