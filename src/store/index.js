@@ -5,6 +5,7 @@ import configuration from './modules/configuration';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  strict: true,
   modules: {
     configuration,
   },
