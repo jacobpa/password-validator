@@ -35,9 +35,19 @@ const lowerCaseChar = (password) => {
   };
 };
 
+const numerical = (password) => {
+  const matches = password.match(/[0-9]/g);
+  const count = matches ? matches.length : 0;
+  return {
+    status: count >= configuration.minNumeric,
+    count,
+  };
+};
+
 export default {
   length,
   specialChar,
   upperCaseChar,
   lowerCaseChar,
+  numerical,
 };
