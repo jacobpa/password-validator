@@ -1,0 +1,13 @@
+{
+    "name": "Node.js - Ladno Pass",
+    "dockerFile": "Dockerfile",
+    "appPort": 8080,
+    "settings": {
+        "terminal.integrated.shell.linux": "/usr/bin/fish"
+    },
+    "postCreateCommand": "npm install",
+    "extensions": [
+        "octref.vetur",
+        "dbaeumer.vscode-eslint"
+    ]
+}
