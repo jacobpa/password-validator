@@ -26,7 +26,7 @@ export default {
     },
     setMinNumeric(state, count) {
       if (typeof count !== 'number' || count < 0) return;
-      state.minLowerChar = count;
+      state.minNumeric = count;
     },
     setPassword(state, pass) {
       state.password = pass;
