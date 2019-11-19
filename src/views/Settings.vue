@@ -36,54 +36,47 @@
   <div class = "configurations">
     <h1>Configurations</h1>
       <ul>
-        <li><button class = "button1" @click="
-        config.minLength = 6,
-        config.minSpecialChar = 0,
-        config.minUpperChar = 0,
-        config.minLowerChar = 0 ">Facebook</button></li>
-
-        <li><button class = "button1" @click="
-        config.minLength = 8,
-        config.minSpecialChar = 3,
-        config.minUpperChar = 3,
-        config.minLowerChar = 3 ">OSU</button></li>
-
-        <li><button class = "button1" @click="
-        config.minLength = 8,
-        config.minSpecialChar = 0,
-        config.minUpperChar = 0,
-        config.minLowerChar = 0 ">Piazza</button></li>
-
-        <li><button class = "button1" @click="
-        config.minLength = 8,
-        config.minSpecialChar = 1,
-        config.minUpperChar = 1,
-        config.minLowerChar = 1 ">Github</button></li>
-
-        <li><button class = "button1" @click="
-        config.minLength = 8,
-        config.minSpecialChar = 1,
-        config.minUpperChar = 1,
-        config.minLowerChar = 1 ">YouTube</button></li>
-
-        <li><button class = "button1" @click="
-        config.minLength = 8,
-        config.minSpecialChar = 1,
-        config.minUpperChar = 0,
-        config.minLowerChar = 0 ">Stack Overflow</button></li>
-
-        <li><button class = "button1" @click="
-        config.minLength = 6,
-        config.minSpecialChar = 0,
-        config.minUpperChar = 0,
-        config.minLowerChar = 0 ">Reddit</button></li>
-
-        <li><button class = "button1" @click="
-        config.minLength = 8,
-        config.minSpecialChar = 2,
-        config.minUpperChar = 2,
-        config.minLowerChar = 2 ">Default Settings</button></li>
-      </ul>
+       <li><button class = "button1" @click="
+       setMinLength(6);
+       setMinSpecialChar(0);
+       setMinUpperChar(0);
+       setMinLowerChar(0);">Facebook</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(3);
+       setMinUpperChar(3);
+       setMinLowerChar(3); ">OSU</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(0);
+       setMinUpperChar(0);
+       setMinLowerChar(0); ">Piazza</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(1);
+       setMinUpperChar(1);
+       setMinLowerChar(1); ">Github</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(1);
+       setMinUpperChar(1);
+       setMinLowerChar(1); ">YouTube</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(1);
+       setMinUpperChar(0);
+       setMinLowerChar(0); ">Stack Overflow</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(6);
+       setMinSpecialChar(0);
+       setMinUpperChar(0);
+       setMinLowerChar(0); ">Reddit</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(2);
+       setMinUpperChar(2);
+       setMinLowerChar(2);">Default Settings</button></li>
+     </ul>
 
   </div>
 
