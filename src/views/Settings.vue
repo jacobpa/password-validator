@@ -33,11 +33,68 @@
         @input="setMinLowerChar"
       />
     </div>
+  <div class = "configurations">
+    <h1>Configurations</h1>
+      <ul>
+       <li><button class = "button1" @click="
+       setMinLength(6);
+       setMinSpecialChar(0);
+       setMinUpperChar(0);
+       setMinLowerChar(0);">Facebook</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(3);
+       setMinUpperChar(3);
+       setMinLowerChar(3); ">OSU</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(0);
+       setMinUpperChar(0);
+       setMinLowerChar(0); ">Piazza</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(1);
+       setMinUpperChar(1);
+       setMinLowerChar(1); ">Github</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(1);
+       setMinUpperChar(1);
+       setMinLowerChar(1); ">YouTube</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(1);
+       setMinUpperChar(0);
+       setMinLowerChar(0); ">Stack Overflow</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(6);
+       setMinSpecialChar(0);
+       setMinUpperChar(0);
+       setMinLowerChar(0); ">Reddit</button></li>
+       <li><button class = "button1" @click="
+       setMinLength(8);
+       setMinSpecialChar(2);
+       setMinUpperChar(2);
+       setMinLowerChar(2);">Default Settings</button></li>
+     </ul>
+
   </div>
+
+  </div>
+
 </template>
 
 <script>
-const parseEventInput = e => (e.target.type === 'number' ? parseInt(e.target.value, 10) : e.target.value);
+const parseEventInput = (e) => {
+  if (e.target) {
+    return (e.target.type === 'number' ? parseInt(e.target.value, 10) : e.target.value);
+  }
+  if (parseInt(e, 10)) {
+    return parseInt(e, 10);
+  }
+
+  return 0;
+};
 
 export default {
   computed: {
@@ -79,6 +136,39 @@ export default {
     input {
       font-size: inherit;
     }
+  }
+
+  .configurations{
+    li {list-style-type: none;
+      float: left;
+      padding-right: 20px;
+      }
+
+      button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 16px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          -webkit-transition-duration: 0.4s; /* Safari */
+          transition-duration: 0.4s;
+          cursor: pointer;
+      }
+
+      .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #001F3F;
+      }
+
+      .button1:hover {
+        background-color: #001F3F;
+        color: white;
+      }
   }
 }
 </style>
