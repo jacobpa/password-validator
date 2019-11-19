@@ -6,6 +6,7 @@
         "terminal.integrated.shell.linux": "/usr/bin/fish"
     },
     "postCreateCommand": "npm install",
+    "runArgs": ["-u", "node"],
     "extensions": [
         "octref.vetur",
         "dbaeumer.vscode-eslint"
