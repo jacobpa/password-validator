@@ -1,11 +1,19 @@
 {
     "name": "Node.js - Ladno Pass",
-    "dockerFile": "Dockerfile",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "dev-server",
     "appPort": 8080,
     "settings": {
-        "terminal.integrated.shell.linux": "/usr/bin/fish"
+        "terminal.integrated.shell.linux": "/usr/bin/fish",
+        "editor.rulers": [100],
+        "[javascript]": {
+            "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        },
+        "[vue]": {
+            "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        }
     },
-    "postCreateCommand": "npm install",
+    "workspaceFolder": "/workspace",
     "runArgs": ["-u", "node"],
     "extensions": [
         "octref.vetur",
