@@ -2,9 +2,8 @@
     "name": "Node.js - Ladno Pass",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "dev-server",
-    "appPort": 8080,
     "settings": {
-        "terminal.integrated.shell.linux": "/usr/bin/fish",
+        "terminal.integrated.shell.linux": "/bin/bash",
         "editor.rulers": [100],
         "[javascript]": {
             "editor.defaultFormatter": "dbaeumer.vscode-eslint"
