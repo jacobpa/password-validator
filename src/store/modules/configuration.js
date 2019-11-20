@@ -5,6 +5,7 @@ export default {
     minSpecialChar: 2,
     minUpperChar: 2,
     minLowerChar: 2,
+    minNumeric: 2,
   },
   mutations: {
     setMinLength(state, length) {
@@ -22,6 +23,10 @@ export default {
     setMinLowerChar(state, count) {
       if (typeof count !== 'number' || count < 0) return;
       state.minLowerChar = count;
+    },
+    setMinNumeric(state, count) {
+      if (typeof count !== 'number' || count < 0) return;
+      state.minNumeric = count;
     },
     setPassword(state, pass) {
       state.password = pass;
