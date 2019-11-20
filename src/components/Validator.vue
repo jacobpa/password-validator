@@ -22,6 +22,11 @@
           :fail-message="`Should have at least ${config.minLowerChar} lowercase characters`"
           :validator="validators.lowerCaseChar"
         />
+        <criteria
+          :pass-message="`Password has ${numericalCount} numerics`"
+          :fail-message="`Should have at least ${config.minNumeric} numerics`"
+          :validator="validators.numerical"
+        />
       </div>
     </div>
 </template>
@@ -48,6 +53,9 @@ export default {
     },
     lowercaseCharCount() {
       return validators.lowerCaseChar(this.password).count;
+    },
+    numericalCount() {
+      return validators.numerical(this.password).count;
     },
     password() {
       return this.config.password;
