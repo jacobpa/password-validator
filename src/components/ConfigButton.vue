@@ -14,9 +14,9 @@
 </template>
 
 <script>
-const parseEventInput = e => {
+const parseEventInput = (e) => {
   if (e.target) {
-    return e.target.type === "number"
+    return e.target.type === 'number'
       ? parseInt(e.target.value, 10)
       : e.target.value;
   }
@@ -30,32 +30,32 @@ export default {
   computed: {
     config() {
       return this.$store.state.configuration;
-    }
+    },
   },
   methods: {
     setMinLength(e) {
-      this.$store.commit("setMinLength", parseEventInput(e));
+      this.$store.commit('setMinLength', parseEventInput(e));
     },
     setMinSpecialChar(e) {
-      this.$store.commit("setMinSpecialChar", parseEventInput(e));
+      this.$store.commit('setMinSpecialChar', parseEventInput(e));
     },
     setMinUpperChar(e) {
-      this.$store.commit("setMinUpperChar", parseEventInput(e));
+      this.$store.commit('setMinUpperChar', parseEventInput(e));
     },
     setMinLowerChar(e) {
-      this.$store.commit("setMinLowerChar", parseEventInput(e));
+      this.$store.commit('setMinLowerChar', parseEventInput(e));
     },
     setMinNumeric(e) {
-      this.$store.commit("setMinNumeric", parseEventInput(e));
-    }
+      this.$store.commit('setMinNumeric', parseEventInput(e));
+    },
   },
   props: {
     minLength: Number,
     minSpecChar: Number,
     minUpperChar: Number,
     minLowerChar: Number,
-    minNumeric: Number
-  }
+    minNumeric: Number,
+  },
 };
 </script>
 
