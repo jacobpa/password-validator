@@ -1,7 +1,9 @@
 version: '3'
 services: 
   dev-server:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     user: node
     working_dir: /workspace
     ports:

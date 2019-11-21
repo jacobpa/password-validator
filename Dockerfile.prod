@@ -1,0 +1,8 @@
+FROM node:10-alpine AS build
+WORKDIR /ladno
+COPY . .
+RUN npm install && npm run build
+
+FROM nginx:stable-alpine AS serve
+COPY --from=build /ladno/dist /usr/share/nginx/html
+EXPOSE 80
