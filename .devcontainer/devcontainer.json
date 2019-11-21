@@ -1,0 +1,21 @@
+{
+    "name": "Node.js - Ladno Pass",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "dev-server",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.rulers": [100],
+        "[javascript]": {
+            "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        },
+        "[vue]": {
+            "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        }
+    },
+    "workspaceFolder": "/workspace",
+    "runArgs": ["-u", "node"],
+    "extensions": [
+        "octref.vetur",
+        "dbaeumer.vscode-eslint"
+    ]
+}

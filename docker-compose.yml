@@ -1,0 +1,14 @@
+version: '3'
+services: 
+  dev-server:
+    build: .
+    user: node
+    working_dir: /workspace
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/workspace
+      - ~/.ssh:/home/node/.ssh:ro
+    command: >
+      bash -c "npm install &&
+               npm run serve"
