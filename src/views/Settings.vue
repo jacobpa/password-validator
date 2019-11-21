@@ -113,6 +113,7 @@
 
 <script>
 import ConfigButton from "@/components/ConfigButton.vue";
+import SettingsGroup from "@/components/SettingsGroup.vue";
 const parseEventInput = e => {
   if (e.target) {
     return e.target.type === "number"
@@ -128,7 +129,8 @@ const parseEventInput = e => {
 
 export default {
   components: {
-    ConfigButton
+    ConfigButton,
+    SettingsGroup
   },
   computed: {
     config() {
