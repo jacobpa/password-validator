@@ -38,12 +38,11 @@
     <div class="input-group">
       <label for="numerics">Minimum number of numerical characters</label>
       <input
-        id="numerics"
-        type="number"
-        min="0"
-        @input="setMinNumeric"
-        :value="config.minNumeric"
-      />
+      id="numerics"
+      type="number"
+      min="0"
+      @input="setMinNumeric"
+      :value="config.minNumeric" />
     </div>
 
     <div class="configurations">
@@ -55,8 +54,7 @@
           :minUpperChar="0"
           :minLowerChar="0"
           :minNumeric="0"
-          >Facebook</ConfigButton
-        >
+        >Facebook</ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -64,8 +62,7 @@
           :minUpperChar="3"
           :minLowerChar="3"
           :minNumeric="3"
-          >OSU</ConfigButton
-        >
+        >OSU</ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -73,8 +70,7 @@
           :minUpperChar="0"
           :minLowerChar="0"
           :minNumeric="0"
-          >Piazza</ConfigButton
-        >
+        >Piazza</ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -82,8 +78,7 @@
           :minUpperChar="1"
           :minLowerChar="1"
           :minNumeric="1"
-          >Github</ConfigButton
-        >
+        >Github</ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -91,8 +86,7 @@
           :minUpperChar="1"
           :minLowerChar="1"
           :minNumeric="1"
-          >Youtube</ConfigButton
-        >
+        >Youtube</ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -100,8 +94,7 @@
           :minUpperChar="1"
           :minLowerChar="1"
           :minNumeric="1"
-          >Stack Overflow</ConfigButton
-        >
+        >Stack Overflow</ConfigButton>
 
         <ConfigButton
           :minLength="6"
@@ -109,8 +102,7 @@
           :minUpperChar="0"
           :minLowerChar="0"
           :minNumeric="0"
-          >Reddit</ConfigButton
-        >
+        >Reddit</ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -118,21 +110,20 @@
           :minUpperChar="2"
           :minLowerChar="2"
           :minNumeric="2"
-          >Default Settings</ConfigButton
-        >
+        >Default Settings</ConfigButton>
       </ul>
     </div>
-    <SettingsGroup />
   </div>
 </template>
 
 <script>
 import ConfigButton from '@/components/ConfigButton.vue';
-import SettingsGroup from '@/components/SettingsGroup.vue';
 
 const parseEventInput = (e) => {
   if (e.target) {
-    return e.target.type === 'number' ? parseInt(e.target.value, 10) : e.target.value;
+    return e.target.type === 'number'
+      ? parseInt(e.target.value, 10)
+      : e.target.value;
   }
   if (parseInt(e, 10)) {
     return parseInt(e, 10);
@@ -144,7 +135,6 @@ const parseEventInput = (e) => {
 export default {
   components: {
     ConfigButton,
-    SettingsGroup,
   },
   computed: {
     config() {
