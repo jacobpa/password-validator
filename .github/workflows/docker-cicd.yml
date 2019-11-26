@@ -1,0 +1,32 @@
+name: Build/Push/Update Docker Image
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Building and pushing Docker image
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: jacobpa/ladno-pass
+        dockerfile: Dockerfile.prod
+        username: ${{ secrets.DH_USERNAME }}
+        password: ${{ secrets.DH_PASSWORD }}
+
+  deploy:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Updating remote docker container on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: ${{ secrets.DOCKER_RESTART_SCRIPT }}
