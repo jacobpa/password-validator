@@ -19,6 +19,7 @@ export default {
     minUpperChar: 2,
     minLowerChar: 2,
     minNumeric: 2,
+    maxRepeating: 3,
   },
   mutations: {
     setMinLength(state, event) {
@@ -45,6 +46,11 @@ export default {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
       state.minNumeric = count;
+    },
+    setMaxRepeating(state, event) {
+      const count = parseEventInput(event);
+      if (typeof count !== 'number' || count < 0) return;
+      state.maxRepeating = count;
     },
     setPassword(state, pass) {
       state.password = pass;

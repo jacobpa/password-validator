@@ -16,6 +16,9 @@
     <Setting name="minNumeric" :validator="setMinNumeric">
       Minimum number of numerical characters
     </Setting>
+    <Setting name="maxRepeating" :validator="setMaxRepeating">
+      Maximum number of repeating characters (case-sensitive)
+    </Setting>
 
     <div class="configurations">
       <h1>Configurations</h1>
@@ -118,6 +121,7 @@ export default {
       'setMinUpperChar',
       'setMinLowerChar',
       'setMinNumeric',
+      'setMaxRepeating',
     ]),
   },
 };
