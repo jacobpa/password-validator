@@ -20,6 +20,7 @@ export default {
     minLowerChar: 2,
     minNumeric: 2,
     maxRepeating: 3,
+    repeatingIsCaseSensitive: true,
   },
   mutations: {
     setMinLength(state, event) {
@@ -51,6 +52,9 @@ export default {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
       state.maxRepeating = count;
+    },
+    toggleRepeatingSensitivity(state) {
+      state.repeatingIsCaseSensitive = !state.repeatingIsCaseSensitive;
     },
     setPassword(state, pass) {
       state.password = pass;

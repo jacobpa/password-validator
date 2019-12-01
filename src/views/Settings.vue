@@ -16,9 +16,13 @@
     <Setting name="minNumeric" :validator="setMinNumeric">
       Minimum number of numerical characters
     </Setting>
-    <Setting name="maxRepeating" :validator="setMaxRepeating">
-      Maximum number of repeating characters (case-sensitive)
-    </Setting>
+    <RepeatingCharSetting
+      name="maxRepeating"
+      :validator="setMaxRepeating"
+      checkboxBoolean="repeatingIsCaseSensitive"
+      :booleanMutator="toggleRepeatingSensitivity">
+      Maximum number of repeating characters
+    </RepeatingCharSetting>
 
     <div class="configurations">
       <h1>Configurations</h1>
@@ -102,10 +106,12 @@
 <script>
 import { mapMutations } from 'vuex';
 import ConfigButton from '@/components/ConfigButton.vue';
-import Setting from '../components/Setting.vue';
+import Setting from '@/components/Setting.vue';
+import RepeatingCharSetting from '@/components/RepeatingCharSetting.vue';
 
 export default {
   components: {
+    RepeatingCharSetting,
     Setting,
     ConfigButton,
   },
@@ -122,6 +128,7 @@ export default {
       'setMinLowerChar',
       'setMinNumeric',
       'setMaxRepeating',
+      'toggleRepeatingSensitivity',
     ]),
   },
 };
