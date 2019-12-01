@@ -8,7 +8,7 @@
       type="number"
       min="0"
       :value="configValue"
-      @input="validator"
+      @input="mutator"
     />
   </div>
 </template>
@@ -19,9 +19,9 @@ import { mapState } from 'vuex';
 export default {
   props: {
     /**
-     * The validation function to use. Should come from @/util/validators.js
+     * The mutator function to use. Should come from @/store/modules/configuration.js
      */
-    validator: {
+    mutator: {
       type: Function,
       required: true,
     },

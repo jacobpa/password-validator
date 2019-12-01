@@ -9,7 +9,7 @@
         type="number"
         min="0"
         :value="configValue"
-        @input="validator"
+        @input="mutator"
       />
       <label>Case-Sensitive?
         <input
@@ -29,16 +29,22 @@ import { mapState } from 'vuex';
 export default {
   props: {
     /**
-     * The validation function to use. Should come from @/util/validators.js
+     * The mutator function to use. Should come from @/store/modules/configuration.js
      */
-    validator: {
+    mutator: {
       type: Function,
       required: true,
     },
+    /**
+     * The mutator function to use for the toggle
+     */
     booleanMutator: {
       type: Function,
       required: true,
     },
+    /**
+     * The name of the boolean validator to use for the checkbox.
+     */
     checkboxBoolean: {
       type: String,
       required: true,

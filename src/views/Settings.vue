@@ -1,24 +1,24 @@
 <template>
   <div class="settings">
     <h1>Settings</h1>
-    <Setting name="minLength" :validator="setMinLength">
+    <Setting name="minLength" :mutator="setMinLength">
       Minimum length of password
     </Setting>
-    <Setting name="minSpecialChar" :validator="setMinSpecialChar">
+    <Setting name="minSpecialChar" :mutator="setMinSpecialChar">
       Minimum number of special characters
     </Setting >
-    <Setting name="minUpperChar" :validator="setMinUpperChar">
+    <Setting name="minUpperChar" :mutator="setMinUpperChar">
       Minimum number of uppercase characters
     </Setting>
-    <Setting name="minLowerChar" :validator="setMinLowerChar">
+    <Setting name="minLowerChar" :mutator="setMinLowerChar">
       Minimum number of lowercase characters
     </Setting>
-    <Setting name="minNumeric" :validator="setMinNumeric">
+    <Setting name="minNumeric" :mutator="setMinNumeric">
       Minimum number of numerical characters
     </Setting>
     <RepeatingCharSetting
       name="maxRepeating"
-      :validator="setMaxRepeating"
+      :mutator="setMaxRepeating"
       checkboxBoolean="repeatingIsCaseSensitive"
       :booleanMutator="toggleRepeatingSensitivity">
       Maximum number of repeating characters
