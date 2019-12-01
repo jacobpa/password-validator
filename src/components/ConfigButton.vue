@@ -14,18 +14,8 @@
 </template>
 
 <script>
-const parseEventInput = (e) => {
-  if (e.target) {
-    return e.target.type === 'number'
-      ? parseInt(e.target.value, 10)
-      : e.target.value;
-  }
-  if (parseInt(e, 10)) {
-    return parseInt(e, 10);
-  }
+import { mapMutations } from 'vuex';
 
-  return 0;
-};
 export default {
   computed: {
     config() {
@@ -33,21 +23,13 @@ export default {
     },
   },
   methods: {
-    setMinLength(e) {
-      this.$store.commit('setMinLength', parseEventInput(e));
-    },
-    setMinSpecialChar(e) {
-      this.$store.commit('setMinSpecialChar', parseEventInput(e));
-    },
-    setMinUpperChar(e) {
-      this.$store.commit('setMinUpperChar', parseEventInput(e));
-    },
-    setMinLowerChar(e) {
-      this.$store.commit('setMinLowerChar', parseEventInput(e));
-    },
-    setMinNumeric(e) {
-      this.$store.commit('setMinNumeric', parseEventInput(e));
-    },
+    ...mapMutations([
+      'setMinLength',
+      'setMinSpecialChar',
+      'setMinUpperChar',
+      'setMinLowerChar',
+      'setMinNumeric',
+    ]),
   },
   props: {
     minLength: Number,
@@ -67,7 +49,6 @@ li {
 }
 button {
   background-color: white;
-  border: none;
   color: black;
   border: 2px solid #001f3f;
   padding: 16px 32px;
