@@ -7,24 +7,42 @@
       :id="name"
       type="number"
       min="0"
-      :value="0"
+      :value="configValue"
       @input="validator"
     />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
-  name: 'Setting',
   props: {
+    /**
+     * The validation function to use. Should come from @/util/validators.js
+     */
     validator: {
       type: Function,
       required: true,
     },
+    /**
+     * The name of the configuration option as it appears in @/store/modules/configuration.js, i.e.
+     * the name of the value in the state object.
+     */
     name: {
       type: String,
       required: true,
     },
+  },
+  computed: {
+    /**
+     * Dynamically set configValue to value of the option passed through the name prop
+     */
+    ...mapState({
+      configValue(state) {
+        return state.configuration[this.name];
+      },
+    }),
   },
 };
 </script>

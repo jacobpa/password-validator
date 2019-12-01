@@ -1,49 +1,21 @@
 <template>
   <div class="settings">
     <h1>Settings</h1>
-    <div class="input-group">
-      <label for="length">Minimum length of password</label>
-      <input id="length" type="number" min="0" :value="config.minLength" @input="setMinLength"/>
-    </div>
-    <div class="input-group">
-      <label for="specialChar">Minimum number of special characters</label>
-      <input
-        id="specialChar"
-        type="number"
-        min="0"
-        :value="config.minSpecialChar"
-        @input="setMinSpecialChar"
-      />
-    </div>
-    <div class="input-group">
-      <label for="upperChar">Minimum number of uppercase characters</label>
-      <input
-        id="upperChar"
-        type="number"
-        min="0"
-        :value="config.minUpperChar"
-        @input="setMinUpperChar"
-      />
-    </div>
-    <div class="input-group">
-      <label for="lowerChar">Minimum number of lowercase characters</label>
-      <input
-        id="lowerChar"
-        type="number"
-        min="0"
-        :value="config.minLowerChar"
-        @input="setMinLowerChar"
-      />
-    </div>
-    <div class="input-group">
-      <label for="numerics">Minimum number of numerical characters</label>
-      <input
-        id="numerics"
-        type="number"
-        min="0"
-        @input="setMinNumeric"
-        :value="config.minNumeric"/>
-    </div>
+    <Setting name="minLength" :validator="setMinLength">
+      Minimum length of password
+    </Setting>
+    <Setting name="minSpecialChar" :validator="setMinSpecialChar">
+      Minimum number of special characters
+    </Setting >
+    <Setting name="minUpperChar" :validator="setMinUpperChar">
+      Minimum number of uppercase characters
+    </Setting>
+    <Setting name="minLowerChar" :validator="setMinLowerChar">
+      Minimum number of lowercase characters
+    </Setting>
+    <Setting name="minNumeric" :validator="setMinNumeric">
+      Minimum number of numerical characters
+    </Setting>
 
     <div class="configurations">
       <h1>Configurations</h1>
@@ -127,9 +99,11 @@
 <script>
 import { mapMutations } from 'vuex';
 import ConfigButton from '@/components/ConfigButton.vue';
+import Setting from '../components/Setting.vue';
 
 export default {
   components: {
+    Setting,
     ConfigButton,
   },
   computed: {
@@ -153,19 +127,5 @@ export default {
   .settings {
     display: flex;
     flex-direction: column;
-
-    .input-group {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-content: center;
-      flex-wrap: nowrap;
-      margin: 0 0.5rem 1.5rem 0.5rem;
-      font-size: 1.25em;
-
-      input {
-        font-size: inherit;
-      }
-    }
   }
 </style>
