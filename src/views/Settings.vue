@@ -1,49 +1,28 @@
 <template>
   <div class="settings">
     <h1>Settings</h1>
-    <div class="input-group">
-      <label for="length">Minimum length of password</label>
-      <input id="length" type="number" min="0" :value="config.minLength" @input="setMinLength" />
-    </div>
-    <div class="input-group">
-      <label for="specialChar">Minimum number of special characters</label>
-      <input
-        id="specialChar"
-        type="number"
-        min="0"
-        :value="config.minSpecialChar"
-        @input="setMinSpecialChar"
-      />
-    </div>
-    <div class="input-group">
-      <label for="upperChar">Minimum number of uppercase characters</label>
-      <input
-        id="upperChar"
-        type="number"
-        min="0"
-        :value="config.minUpperChar"
-        @input="setMinUpperChar"
-      />
-    </div>
-    <div class="input-group">
-      <label for="lowerChar">Minimum number of lowercase characters</label>
-      <input
-        id="lowerChar"
-        type="number"
-        min="0"
-        :value="config.minLowerChar"
-        @input="setMinLowerChar"
-      />
-    </div>
-    <div class="input-group">
-      <label for="numerics">Minimum number of numerical characters</label>
-      <input
-      id="numerics"
-      type="number"
-      min="0"
-      @input="setMinNumeric"
-      :value="config.minNumeric" />
-    </div>
+    <Setting name="minLength" :mutator="setMinLength">
+      Minimum length of password
+    </Setting>
+    <Setting name="minSpecialChar" :mutator="setMinSpecialChar">
+      Minimum number of special characters
+    </Setting >
+    <Setting name="minUpperChar" :mutator="setMinUpperChar">
+      Minimum number of uppercase characters
+    </Setting>
+    <Setting name="minLowerChar" :mutator="setMinLowerChar">
+      Minimum number of lowercase characters
+    </Setting>
+    <Setting name="minNumeric" :mutator="setMinNumeric">
+      Minimum number of numerical characters
+    </Setting>
+    <RepeatingCharSetting
+      name="maxRepeating"
+      :mutator="setMaxRepeating"
+      checkboxBoolean="repeatingIsCaseSensitive"
+      :booleanMutator="toggleRepeatingSensitivity">
+      Maximum number of repeating characters
+    </RepeatingCharSetting>
 
     <div class="configurations">
       <h1>Configurations</h1>
@@ -54,7 +33,8 @@
           :minUpperChar="0"
           :minLowerChar="0"
           :minNumeric="0"
-        >Facebook</ConfigButton>
+        >Facebook
+        </ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -62,7 +42,8 @@
           :minUpperChar="3"
           :minLowerChar="3"
           :minNumeric="3"
-        >OSU</ConfigButton>
+        >OSU
+        </ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -70,7 +51,8 @@
           :minUpperChar="0"
           :minLowerChar="0"
           :minNumeric="0"
-        >Piazza</ConfigButton>
+        >Piazza
+        </ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -78,7 +60,8 @@
           :minUpperChar="1"
           :minLowerChar="1"
           :minNumeric="1"
-        >Github</ConfigButton>
+        >Github
+        </ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -86,7 +69,8 @@
           :minUpperChar="1"
           :minLowerChar="1"
           :minNumeric="1"
-        >Youtube</ConfigButton>
+        >Youtube
+        </ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -94,7 +78,8 @@
           :minUpperChar="1"
           :minLowerChar="1"
           :minNumeric="1"
-        >Stack Overflow</ConfigButton>
+        >Stack Overflow
+        </ConfigButton>
 
         <ConfigButton
           :minLength="6"
@@ -102,7 +87,8 @@
           :minUpperChar="0"
           :minLowerChar="0"
           :minNumeric="0"
-        >Reddit</ConfigButton>
+        >Reddit
+        </ConfigButton>
 
         <ConfigButton
           :minLength="8"
@@ -110,30 +96,23 @@
           :minUpperChar="2"
           :minLowerChar="2"
           :minNumeric="2"
-        >Default Settings</ConfigButton>
+        >Default Settings
+        </ConfigButton>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import ConfigButton from '@/components/ConfigButton.vue';
-
-const parseEventInput = (e) => {
-  if (e.target) {
-    return e.target.type === 'number'
-      ? parseInt(e.target.value, 10)
-      : e.target.value;
-  }
-  if (parseInt(e, 10)) {
-    return parseInt(e, 10);
-  }
-
-  return 0;
-};
+import Setting from '@/components/Setting.vue';
+import RepeatingCharSetting from '@/components/RepeatingCharSetting.vue';
 
 export default {
   components: {
+    RepeatingCharSetting,
+    Setting,
     ConfigButton,
   },
   computed: {
@@ -142,42 +121,22 @@ export default {
     },
   },
   methods: {
-    setMinLength(e) {
-      this.$store.commit('setMinLength', parseEventInput(e));
-    },
-    setMinSpecialChar(e) {
-      this.$store.commit('setMinSpecialChar', parseEventInput(e));
-    },
-    setMinUpperChar(e) {
-      this.$store.commit('setMinUpperChar', parseEventInput(e));
-    },
-    setMinLowerChar(e) {
-      this.$store.commit('setMinLowerChar', parseEventInput(e));
-    },
-    setMinNumeric(e) {
-      this.$store.commit('setMinNumeric', parseEventInput(e));
-    },
+    ...mapMutations([
+      'setMinLength',
+      'setMinSpecialChar',
+      'setMinUpperChar',
+      'setMinLowerChar',
+      'setMinNumeric',
+      'setMaxRepeating',
+      'toggleRepeatingSensitivity',
+    ]),
   },
 };
 </script>
 
 <style lang="scss">
-.settings {
-  display: flex;
-  flex-direction: column;
-
-  .input-group {
+  .settings {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    flex-wrap: nowrap;
-    margin: 0em 0.5rem 1.5rem 0.5rem;
-    font-size: 1.25em;
-
-    input {
-      font-size: inherit;
-    }
+    flex-direction: column;
   }
-}
 </style>

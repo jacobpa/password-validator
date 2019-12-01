@@ -44,10 +44,23 @@ const numerical = (password) => {
   };
 };
 
+const repeating = (password) => {
+  const expression = new RegExp(`(.)\\1{${configuration.maxRepeating - 1},}`,
+    `g${configuration.repeatingIsCaseSensitive ? '' : 'i'}`);
+  const matches = password.match(expression);
+  const count = matches ? matches.length : 0;
+  return {
+    status: count === 0,
+    count,
+    matches,
+  };
+};
+
 export default {
   length,
   specialChar,
   upperCaseChar,
   lowerCaseChar,
   numerical,
+  repeating,
 };
