@@ -27,6 +27,11 @@
           :fail-message="`Should have at least ${config.minNumeric} numerics`"
           :validator="validators.numerical"
         />
+        <criteria
+          :pass-message="`Password has no warnings`"
+          :fail-message="`${passwordWarning}`"
+          :validator="validators.passwordWarning"
+        />
       </div>
     </div>
 </template>
@@ -56,6 +61,9 @@ export default {
     },
     numericalCount() {
       return validators.numerical(this.password).count;
+    },
+    passwordWarning() {
+      return validators.passwordWarning(this.password);
     },
     password() {
       return this.config.password;

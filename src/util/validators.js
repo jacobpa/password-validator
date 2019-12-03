@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import store from '@/store';
 
 const { configuration } = store.state;
@@ -44,10 +45,20 @@ const numerical = (password) => {
   };
 };
 
+const passwordWarning = (password) => {
+  const zxcvbnResult = zxcvbn(password);
+  const warning = zxcvbnResult.feedback.warning;
+  return {
+    status: warning.length > 0,
+    warning,
+  };
+};
+
 export default {
   length,
   specialChar,
   upperCaseChar,
   lowerCaseChar,
   numerical,
+  passwordWarning,
 };
