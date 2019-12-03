@@ -40,6 +40,10 @@ nav {
         &:last-of-type {
           margin-right: 0;
         }
+
+        &.router-link-exact-active {
+          font-weight: bold;
+        }
       }
     }
 
