@@ -67,10 +67,10 @@ export default {
      */
     ...mapState({
       configValue(state) {
-        return state.configuration[this.name];
+        return state.configuration[this.name].value;
       },
       configCheckbox(state) {
-        return state.configuration[this.checkboxBoolean];
+        return state.configuration[this.checkboxBoolean].value;
       },
     }),
   },

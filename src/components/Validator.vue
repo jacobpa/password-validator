@@ -4,27 +4,27 @@
     <div class="criteria-container">
       <criteria
         :pass-message="`Password is ${password.length} characters long`"
-        :fail-message="`Password should be at least ${config.minLength} characters long`"
+        :fail-message="`Password should be at least ${config.minLength.value} characters long`"
         :validator="validators.length"
       />
       <criteria
         :pass-message="`Password has ${specialCharCount} special characters`"
-        :fail-message="`Should have at least ${config.minSpecialChar} special characters`"
+        :fail-message="`Should have at least ${config.minSpecialChar.value} special characters`"
         :validator="validators.specialChar"
       />
       <criteria
         :pass-message="`Password has ${uppercaseCharCount} uppercase characters`"
-        :fail-message="`Should have at least ${config.minUpperChar} uppercase characters`"
+        :fail-message="`Should have at least ${config.minUpperChar.value} uppercase characters`"
         :validator="validators.upperCaseChar"
       />
       <criteria
         :pass-message="`Password has ${lowercaseCharCount} lowercase characters`"
-        :fail-message="`Should have at least ${config.minLowerChar} lowercase characters`"
+        :fail-message="`Should have at least ${config.minLowerChar.value} lowercase characters`"
         :validator="validators.lowerCaseChar"
       />
       <criteria
         :pass-message="`Password has ${numericalCount} numerics`"
-        :fail-message="`Should have at least ${config.minNumeric} numerics`"
+        :fail-message="`Should have at least ${config.minNumeric.value} numerics`"
         :validator="validators.numerical"
       />
       <criteria

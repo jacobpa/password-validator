@@ -41,7 +41,7 @@ export default {
      */
     ...mapState({
       configValue(state) {
-        return state.configuration[this.name];
+        return state.configuration[this.name].value;
       },
     }),
   },

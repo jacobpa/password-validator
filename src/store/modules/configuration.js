@@ -14,47 +14,68 @@ const parseEventInput = (e) => {
 export default {
   state: {
     password: '',
-    minLength: 8,
-    minSpecialChar: 2,
-    minUpperChar: 2,
-    minLowerChar: 2,
-    minNumeric: 2,
-    maxRepeating: 3,
-    repeatingIsCaseSensitive: true,
+    minLength: {
+      value: 8,
+      enabled: true,
+    },
+    minSpecialChar: {
+      value: 2,
+      enabled: true,
+    },
+    minUpperChar: {
+      value: 2,
+      enabled: true,
+    },
+    minLowerChar: {
+      value: 2,
+      enabled: true,
+    },
+    minNumeric: {
+      value: 2,
+      enabled: true,
+    },
+    maxRepeating: {
+      value: 3,
+      enabled: true,
+    },
+    repeatingIsCaseSensitive: {
+      value: true,
+      enabled: true,
+    },
   },
   mutations: {
     setMinLength(state, event) {
       const length = parseEventInput(event);
       if (typeof length !== 'number' || length < 0) return;
-      state.minLength = length;
+      state.minLength.value = length;
     },
     setMinSpecialChar(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
-      state.minSpecialChar = count;
+      state.minSpecialChar.value = count;
     },
     setMinUpperChar(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
-      state.minUpperChar = count;
+      state.minUpperChar.value = count;
     },
     setMinLowerChar(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
-      state.minLowerChar = count;
+      state.minLowerChar.value = count;
     },
     setMinNumeric(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
-      state.minNumeric = count;
+      state.minNumeric.value = count;
     },
     setMaxRepeating(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
-      state.maxRepeating = count;
+      state.maxRepeating.value = count;
     },
     toggleRepeatingSensitivity(state) {
-      state.repeatingIsCaseSensitive = !state.repeatingIsCaseSensitive;
+      state.repeatingIsCaseSensitive.value = !state.repeatingIsCaseSensitive.value;
     },
     setPassword(state, pass) {
       state.password = pass;
