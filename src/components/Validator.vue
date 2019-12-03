@@ -28,7 +28,7 @@
         :validator="validators.numerical"
       />
       <criteria
-        pass-message="Password no illegal repeated character sequences"
+        pass-message="Password contains  no illegal repeated character sequences"
         :fail-message="`Password has ${repeatedSequences.count} repeated character sequences:
           ${repeatedSequences.matches}`"
         :validator="validators.repeating"
