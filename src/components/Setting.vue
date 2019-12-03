@@ -8,14 +8,14 @@
       :id="name"
       type="number"
       min="0"
-      :value="configValue.value"
+      :value="configOption.value"
       @input="mutator"
     />
     <div class="toggles">
       <label>
         <input
           type="checkbox"
-          :checked="configValue.enabled"
+          :checked="configOption.enabled"
           @input="toggleEnabled"
         />Enabled?
       </label>
@@ -49,7 +49,7 @@ export default {
      * Dynamically set configValue to value of the option passed through the name prop
      */
     ...mapState({
-      configValue(state) {
+      configOption(state) {
         return state.configuration[this.name];
       },
     }),
