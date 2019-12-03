@@ -26,8 +26,7 @@
       </RepeatingCharSetting>
     </div>
     <h1>Configurations</h1>
-    <div class="configurations">
-      <ul>
+    <div class="button-container">
         <ConfigButton
           :minLength="6"
           :minSpecChar="0"
@@ -99,7 +98,6 @@
           :minNumeric="2"
         >Default Settings
         </ConfigButton>
-      </ul>
     </div>
   </div>
 </template>
@@ -140,6 +138,10 @@ export default {
     display: flex;
     flex-direction: column;
 
+    h1:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+
     .config-options {
       display: grid;
       grid-template-columns: 50% 25% 25%;
@@ -160,6 +162,13 @@ export default {
       .inputs {
         grid-column: 3 / 4;
       }
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 </style>
