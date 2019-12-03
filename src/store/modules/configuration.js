@@ -47,31 +47,37 @@ export default {
     setMinLength(state, event) {
       const length = parseEventInput(event);
       if (typeof length !== 'number' || length < 0) return;
+      state.minLength.enabled = length !== 0;
       state.minLength.value = length;
     },
     setMinSpecialChar(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
+      state.minSpecialChar.enabled = count !== 0;
       state.minSpecialChar.value = count;
     },
     setMinUpperChar(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
+      state.minUpperChar.enabled = count !== 0;
       state.minUpperChar.value = count;
     },
     setMinLowerChar(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
+      state.minLowerChar.enabled = count !== 0;
       state.minLowerChar.value = count;
     },
     setMinNumeric(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
+      state.minNumeric.enabled = count !== 0;
       state.minNumeric.value = count;
     },
     setMaxRepeating(state, event) {
       const count = parseEventInput(event);
       if (typeof count !== 'number' || count < 0) return;
+      state.maxRepeating.enabled = count !== 0;
       state.maxRepeating.value = count;
     },
     toggleRepeatingSensitivity(state) {
