@@ -14,21 +14,13 @@
     />
 
     <div class="inputs">
-      <label>Case-Sensitive?
+      <label>
         <input
           name="config-toggle"
           type="checkbox"
           :checked="configCheckbox"
           @input="booleanMutator"
-        >
-      </label>
-      <label>Enabled?
-        <input
-          name="config-toggle"
-          type="checkbox"
-          :checked="configCheckbox"
-          @input="booleanMutator"
-        >
+        >Case-Sensitive?
       </label>
     </div>
   </div>

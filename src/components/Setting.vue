@@ -53,17 +53,21 @@ export default {
     font-size: 1.25em;
 
     .description {
-      margin: auto;
+      margin: auto 0 auto auto;
     }
 
     .inputs {
       display: flex;
       flex-direction: column;
-      margin: auto 0 auto auto;
+      margin: auto auto auto 0;
 
       label {
-        font-size: .5em;
+        font-size: .66em;
         margin: inherit;
+
+        input {
+          margin-right: .5em;
+        }
       }
     }
 
