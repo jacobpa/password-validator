@@ -33,6 +33,7 @@
           :minUpperChar="0"
           :minLowerChar="0"
           :minNumeric="0"
+          :maxRepeating="0"
         >Facebook
         </ConfigButton>
 
@@ -42,6 +43,7 @@
           :minUpperChar="3"
           :minLowerChar="3"
           :minNumeric="3"
+          :maxRepeating="0"
         >OSU
         </ConfigButton>
 
@@ -51,15 +53,17 @@
           :minUpperChar="0"
           :minLowerChar="0"
           :minNumeric="0"
+          :maxRepeating="0"
         >Piazza
         </ConfigButton>
 
         <ConfigButton
           :minLength="8"
-          :minSpecChar="1"
-          :minUpperChar="1"
+          :minSpecChar="0"
+          :minUpperChar="0"
           :minLowerChar="1"
           :minNumeric="1"
+          :maxRepeating="0"
         >Github
         </ConfigButton>
 
@@ -69,6 +73,7 @@
           :minUpperChar="1"
           :minLowerChar="1"
           :minNumeric="1"
+          :maxRepeating="0"
         >Youtube
         </ConfigButton>
 
@@ -78,6 +83,7 @@
           :minUpperChar="1"
           :minLowerChar="1"
           :minNumeric="1"
+          :maxRepeating="0"
         >Stack Overflow
         </ConfigButton>
 
@@ -87,6 +93,7 @@
           :minUpperChar="0"
           :minLowerChar="0"
           :minNumeric="0"
+          :maxRepeating="0"
         >Reddit
         </ConfigButton>
 
@@ -96,6 +103,7 @@
           :minUpperChar="2"
           :minLowerChar="2"
           :minNumeric="2"
+          :maxRepeating="3"
         >Default Settings
         </ConfigButton>
     </div>
