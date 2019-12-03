@@ -54,7 +54,7 @@ export default {
 
 @media only screen and (min-width: 961px) {
   .view-container {
-    grid-column: 3 / 11;
+    grid-column: 4 / 10;
   }
 }
 </style>
