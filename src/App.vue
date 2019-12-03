@@ -6,14 +6,17 @@
         <router-view/>
       </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Navigation from '@/components/Navigation.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
   components: {
+    Footer,
     Navigation,
   },
 };
@@ -26,8 +29,9 @@ export default {
 }
 
 #app {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
     'Open Sans', 'Helvetica Neue', sans-serif;
   color: $black;
