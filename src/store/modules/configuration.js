@@ -77,6 +77,9 @@ export default {
     toggleRepeatingSensitivity(state) {
       state.repeatingIsCaseSensitive.value = !state.repeatingIsCaseSensitive.value;
     },
+    toggleEnabled(state, config) {
+      state[config].enabled = !state[config].enabled;
+    },
     setPassword(state, pass) {
       state.password = pass;
     },

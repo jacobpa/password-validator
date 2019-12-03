@@ -3,31 +3,37 @@
     <input type="text" spellcheck="false" :value="password" @input="updatePassword"/>
     <div class="criteria-container">
       <criteria
+        v-if="config.minLength.enabled"
         :pass-message="`Password is ${password.length} characters long`"
         :fail-message="`Password should be at least ${config.minLength.value} characters long`"
         :validator="validators.length"
       />
       <criteria
+        v-if="config.minSpecialChar.enabled"
         :pass-message="`Password has ${specialCharCount} special characters`"
         :fail-message="`Should have at least ${config.minSpecialChar.value} special characters`"
         :validator="validators.specialChar"
       />
       <criteria
+        v-if="config.minUpperChar.enabled"
         :pass-message="`Password has ${uppercaseCharCount} uppercase characters`"
         :fail-message="`Should have at least ${config.minUpperChar.value} uppercase characters`"
         :validator="validators.upperCaseChar"
       />
       <criteria
+        v-if="config.minLowerChar.enabled"
         :pass-message="`Password has ${lowercaseCharCount} lowercase characters`"
         :fail-message="`Should have at least ${config.minLowerChar.value} lowercase characters`"
         :validator="validators.lowerCaseChar"
       />
       <criteria
+        v-if="config.minNumeric.enabled"
         :pass-message="`Password has ${numericalCount} numerics`"
         :fail-message="`Should have at least ${config.minNumeric.value} numerics`"
         :validator="validators.numerical"
       />
       <criteria
+        v-if="config.maxRepeating.enabled"
         pass-message="Password contains  no illegal repeated character sequences"
         :fail-message="`Password has ${repeatedSequences.count} repeated character sequences:
           ${repeatedSequences.matches}`"

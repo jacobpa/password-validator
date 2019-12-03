@@ -9,11 +9,18 @@
       :id="name"
       type="number"
       min="0"
-      :value="configValue"
+      :value="configValue.value"
       @input="mutator"
     />
 
     <div class="inputs">
+      <label>
+        <input
+          type="checkbox"
+          :checked="configValue.enabled"
+          @input="toggleEnabled"
+        />Enabled?
+      </label>
       <label>
         <input
           name="config-toggle"
@@ -67,12 +74,17 @@ export default {
      */
     ...mapState({
       configValue(state) {
-        return state.configuration[this.name].value;
+        return state.configuration[this.name];
       },
       configCheckbox(state) {
         return state.configuration[this.checkboxBoolean].value;
       },
     }),
+  },
+  methods: {
+    toggleEnabled() {
+      this.$store.commit('toggleEnabled', this.name);
+    },
   },
 };
 </script>

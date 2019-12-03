@@ -8,9 +8,18 @@
       :id="name"
       type="number"
       min="0"
-      :value="configValue"
+      :value="configValue.value"
       @input="mutator"
     />
+    <div class="inputs">
+      <label>
+        <input
+          type="checkbox"
+          :checked="configValue.enabled"
+          @input="toggleEnabled"
+        />Enabled?
+      </label>
+    </div>
   </div>
 </template>
 
@@ -41,9 +50,14 @@ export default {
      */
     ...mapState({
       configValue(state) {
-        return state.configuration[this.name].value;
+        return state.configuration[this.name];
       },
     }),
+  },
+  methods: {
+    toggleEnabled() {
+      this.$store.commit('toggleEnabled', this.name);
+    },
   },
 };
 </script>
