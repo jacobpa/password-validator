@@ -1,5 +1,4 @@
 <template>
-  <li>
     <button
       @click="
        setMinLength(minLength);
@@ -10,7 +9,6 @@
     >
       <slot></slot>
     </button>
-  </li>
 </template>
 
 <script>
@@ -41,28 +39,22 @@ export default {
 };
 </script>
 
-<style>
-li {
-  list-style-type: none;
-  float: left;
-  padding-right: 20px;
-}
+<style lang="scss">
 button {
   background-color: white;
   color: black;
-  border: 2px solid #001f3f;
+  border: 2px solid $navy;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  margin: 0.25em 0.25em;
   transition-duration: 0.4s;
   cursor: pointer;
 }
 button:hover {
-  background-color: #001f3f;
+  background-color: $navy;
   color: white;
 }
 </style>

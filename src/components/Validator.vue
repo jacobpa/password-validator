@@ -28,7 +28,7 @@
         :validator="validators.numerical"
       />
       <criteria
-        pass-message="Password no illegal repeated character sequences"
+        pass-message="Password contains  no illegal repeated character sequences"
         :fail-message="`Password has ${repeatedSequences.count} repeated character sequences:
           ${repeatedSequences.matches}`"
         :validator="validators.repeating"
@@ -92,6 +92,8 @@ export default {
     font-size: 1.25em;
 
     input {
+      box-sizing: border-box;
+      width: 100%;
       margin-bottom: 1rem;
       font-size: 1.5em;
       padding: .25em;

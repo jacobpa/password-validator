@@ -35,10 +35,14 @@ nav {
       min-height: 1.5em;
 
       a {
-        padding-right: 1em;
+        margin-right: 1em;
 
         &:last-of-type {
-          padding-right: 0;
+          margin-right: 0;
+        }
+
+        &.router-link-exact-active {
+          font-weight: bold;
         }
       }
     }

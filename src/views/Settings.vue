@@ -1,32 +1,32 @@
 <template>
   <div class="settings">
     <h1>Settings</h1>
-    <Setting name="minLength" :mutator="setMinLength">
-      Minimum length of password
-    </Setting>
-    <Setting name="minSpecialChar" :mutator="setMinSpecialChar">
-      Minimum number of special characters
-    </Setting >
-    <Setting name="minUpperChar" :mutator="setMinUpperChar">
-      Minimum number of uppercase characters
-    </Setting>
-    <Setting name="minLowerChar" :mutator="setMinLowerChar">
-      Minimum number of lowercase characters
-    </Setting>
-    <Setting name="minNumeric" :mutator="setMinNumeric">
-      Minimum number of numerical characters
-    </Setting>
-    <RepeatingCharSetting
-      name="maxRepeating"
-      :mutator="setMaxRepeating"
-      checkboxBoolean="repeatingIsCaseSensitive"
-      :booleanMutator="toggleRepeatingSensitivity">
-      Maximum number of repeating characters
-    </RepeatingCharSetting>
-
-    <div class="configurations">
-      <h1>Configurations</h1>
-      <ul>
+    <div class="config-options">
+      <Setting name="minLength" :mutator="setMinLength">
+        Minimum length of password
+      </Setting>
+      <Setting name="minSpecialChar" :mutator="setMinSpecialChar">
+        Minimum number of special characters
+      </Setting >
+      <Setting name="minUpperChar" :mutator="setMinUpperChar">
+        Minimum number of uppercase characters
+      </Setting>
+      <Setting name="minLowerChar" :mutator="setMinLowerChar">
+        Minimum number of lowercase characters
+      </Setting>
+      <Setting name="minNumeric" :mutator="setMinNumeric">
+        Minimum number of numerical characters
+      </Setting>
+      <RepeatingCharSetting
+        name="maxRepeating"
+        :mutator="setMaxRepeating"
+        checkboxBoolean="repeatingIsCaseSensitive"
+        :booleanMutator="toggleRepeatingSensitivity">
+        Maximum number of repeating characters
+      </RepeatingCharSetting>
+    </div>
+    <h1>Configurations</h1>
+    <div class="button-container">
         <ConfigButton
           :minLength="6"
           :minSpecChar="0"
@@ -98,7 +98,6 @@
           :minNumeric="2"
         >Default Settings
         </ConfigButton>
-      </ul>
     </div>
   </div>
 </template>
@@ -138,5 +137,38 @@ export default {
   .settings {
     display: flex;
     flex-direction: column;
+
+    h1:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+
+    .config-options {
+      display: grid;
+      grid-template-columns: 50% 25% 25%;
+      grid-row-gap: 1em;
+
+      > div {
+        display: contents;
+      }
+
+      .description {
+        grid-column: 1 / 2;
+      }
+
+      .field {
+        grid-column: 2 / 3;
+      }
+
+      .inputs {
+        grid-column: 3 / 4;
+      }
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 </style>
