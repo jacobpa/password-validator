@@ -13,7 +13,7 @@
       @input="mutator"
     />
 
-    <div class="inputs">
+    <div class="toggles">
       <label>
         <input
           type="checkbox"

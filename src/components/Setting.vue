@@ -11,7 +11,7 @@
       :value="configValue.value"
       @input="mutator"
     />
-    <div class="inputs">
+    <div class="toggles">
       <label>
         <input
           type="checkbox"
@@ -70,7 +70,7 @@ export default {
       margin: auto 0 auto auto;
     }
 
-    .inputs {
+    .toggles {
       display: flex;
       flex-direction: column;
       margin: auto auto auto 0;
