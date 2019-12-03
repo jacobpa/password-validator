@@ -92,6 +92,8 @@ export default {
     font-size: 1.25em;
 
     input {
+      box-sizing: border-box;
+      width: 100%;
       margin-bottom: 1rem;
       font-size: 1.5em;
       padding: .25em;

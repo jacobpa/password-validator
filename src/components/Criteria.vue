@@ -33,6 +33,7 @@ export default {
 <style lang="scss">
 p {
   text-align: center;
+  word-break: break-word;
 
     &.invalid {
         color: $red;
