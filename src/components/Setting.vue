@@ -1,9 +1,10 @@
 <template>
   <div class="setting">
-    <label :for="name">
+    <label :for="name" class="description">
       <slot>Value for setting</slot>
     </label>
     <input
+      class="field"
       :id="name"
       type="number"
       min="0"
@@ -49,15 +50,27 @@ export default {
 
 <style lang="scss">
   .setting {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    flex-wrap: nowrap;
-    margin: 0 0.5rem 1.5rem 0.5rem;
     font-size: 1.25em;
 
-    input {
+    .description {
+      margin: auto;
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0 auto auto;
+
+      label {
+        font-size: .5em;
+        margin: inherit;
+      }
+    }
+
+    input[type='number'] {
+      box-sizing: border-box;
+      width: 75%;
+      margin: auto;
       font-size: inherit;
     }
   }
