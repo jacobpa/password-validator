@@ -19,7 +19,6 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    border-top: solid $silver 2px;
     background-color: $navy;
     height: 3rem;
 
