@@ -9,11 +9,18 @@
       :id="name"
       type="number"
       min="0"
-      :value="configValue"
+      :value="configOption.value"
       @input="mutator"
     />
 
-    <div class="inputs">
+    <div class="toggles">
+      <label>
+        <input
+          type="checkbox"
+          :checked="configOption.enabled"
+          @input="toggleEnabled"
+        />Enabled?
+      </label>
       <label>
         <input
           name="config-toggle"
@@ -66,13 +73,18 @@ export default {
      * Dynamically set configValue to value of the option passed through the name prop
      */
     ...mapState({
-      configValue(state) {
+      configOption(state) {
         return state.configuration[this.name];
       },
       configCheckbox(state) {
-        return state.configuration[this.checkboxBoolean];
+        return state.configuration[this.checkboxBoolean].value;
       },
     }),
+  },
+  methods: {
+    toggleEnabled() {
+      this.$store.commit('toggleEnabled', this.name);
+    },
   },
 };
 </script>
