@@ -5,7 +5,8 @@
        setMinSpecialChar(minSpecChar);
        setMinUpperChar(minUpperChar);
        setMinLowerChar(minLowerChar);
-       setMinNumeric(minNumeric)"
+       setMinNumeric(minNumeric);
+       setMaxRepeating(maxRepeating);"
     >
       <slot></slot>
     </button>
@@ -27,6 +28,7 @@ export default {
       'setMinUpperChar',
       'setMinLowerChar',
       'setMinNumeric',
+      'setMaxRepeating',
     ]),
   },
   props: {
@@ -35,6 +37,7 @@ export default {
     minUpperChar: Number,
     minLowerChar: Number,
     minNumeric: Number,
+    maxRepeating: Number,
   },
 };
 </script>
