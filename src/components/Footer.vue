@@ -1,10 +1,9 @@
 <template>
   <footer>
-    <span>&copy;</span>
-    <span>Brien Beattie</span>
-    <span>Jacob Patterson</span>
-    <span>Mike Yandam</span>
-    <span>Andrew Ehrman</span>
+    <a href="https://github.com/jacobpa/password-validator">
+      View on Github <font-awesome-icon :icon="['fab', 'github']"/>
+    </a>
+
   </footer>
 </template>
 
@@ -20,22 +19,19 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    border-top: solid $blue 2px;
+    border-top: solid $silver 2px;
     background-color: $navy;
     height: 3rem;
 
-      span {
+      a {
         color: $white;
         display: block;
-        font-size: .8em;
         text-align: center;
         margin-left: 1ex;
+        text-decoration: none;
 
-        &:not(:first-child):not(:last-child) {
-          &::after {
-            margin-left: 1ex;
-            content: "|"
-          }
+        &:hover {
+          color: $silver;
         }
       }
   }
