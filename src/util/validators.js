@@ -2,7 +2,7 @@ import store from '@/store';
 
 const { configuration } = store.state;
 
-const length = password => ({
+const length = (password) => ({
   status: password.length >= configuration.minLength.value,
   count: password.length,
 });
